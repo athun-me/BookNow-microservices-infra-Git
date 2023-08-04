@@ -1,0 +1,9 @@
+go 1.18
+
+use (
+	./book-administrative-service
+	./bookNow-Api-Gateway
+    ./book-administrative-service
+    ./bookNowTrain-svc
+    ./bookNow-Account-Services
+)
