@@ -2,8 +2,9 @@ go 1.18
 
 use (
 	./book-administrative-service
+	./bookNow-Account-Services
 	./bookNow-Api-Gateway
-    ./book-administrative-service
-    ./bookNowTrain-svc
-    ./bookNow-Account-Services
+	./bookNow-auth-svc
+	./bookNowBooking-svc
+	./bookNowTrain-svc
 )
