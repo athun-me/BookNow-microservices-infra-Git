@@ -1,0 +1,18 @@
+[submodule "path-to-Submodules/book-administrative-service"]
+	path = path-to-Submodules/book-administrative-service
+	url = https://github.com/Athunlal/book-administrative-service.git
+[submodule "path-to-Submodules/bookNow-Api-Gateway.git"]
+	path = path-to-Submodules/bookNow-Api-Gateway.git
+	url = https://github.com/Athunlal/bookNow-Api-Gateway.git
+[submodule "path-to-Submodules/bookNowBooking-svc.git"]
+	path = path-to-Submodules/bookNowBooking-svc.git
+	url = https://github.com/Athunlal/bookNowBooking-svc.git
+[submodule "path-to-Submodules/bookNow-Account-Services"]
+	path = path-to-Submodules/bookNow-Account-Services
+	url = https://github.com/Athunlal/bookNow-Account-Services.git
+[submodule "path-to-Submodules/bookNow-auth-svc"]
+	path = path-to-Submodules/bookNow-auth-svc
+	url = https://github.com/Athunlal/bookNow-auth-svc.git
+[submodule "path-to-Submodules/bookNowTrain-svc"]
+	path = path-to-Submodules/bookNowTrain-svc
+	url = https://github.com/Athunlal/bookNowTrain-svc.git
