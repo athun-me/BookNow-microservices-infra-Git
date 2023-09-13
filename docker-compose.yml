@@ -1,0 +1,92 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    container_name: booknow-postgres
+    environment:
+      POSTGRES_DB: booknow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: athun123
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - booknow-network
+
+  mongodb:
+    image: mongo:4.4
+    container_name: booknow-mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongodb_data:/data/db
+    networks:
+      - booknow-network
+
+  booknow-account-services:
+    build:
+      context: ./path-to-Submodules/bookNow-Account-Services
+    container_name: booknow-account-services
+    ports:
+      - "8000:8000"
+    networks:
+      - booknow-network
+    depends_on:
+      - postgres
+      - mongodb
+
+  booknow-api-gateway:
+    build:
+      context: ./path-to-Submodules/bookNow-Api-Gateway.git
+    container_name: booknow-api-gateway
+    ports:
+      - "80:8000"
+    networks:
+      - booknow-network
+    depends_on:
+      - booknow-account-services
+      - booknow-booking-svc
+      - booknow-admin-svc
+      - booknow-auth-svc
+      - booknow-train-svc
+
+  booknow-booking-svc:
+    build:
+      context: ./path-to-Submodules/bookNowBooking-svc.git
+    container_name: booknow-booking-svc
+    networks:
+      - booknow-network
+    depends_on:
+      - postgres
+
+  booknow-admin-svc:
+    build:
+      context: ./path-to-Submodules/book-administrative-service
+    container_name: booknow-admin-svc
+    networks:
+      - booknow-network
+    depends_on:
+      - postgres
+
+  booknow-auth-svc:
+    build:
+      context: ./path-to-Submodules/bookNow-auth-svc
+    container_name: booknow-auth-svc
+    networks:
+      - booknow-network
+    depends_on:
+      - postgres
+
+  booknow-train-svc:
+    build:
+      context: ./path-to-Submodules/bookNowTrain-svc
+    container_name: booknow-train-svc
+    networks:
+      - booknow-network
+    depends_on:
+      - postgres
+
+networks:
+  booknow-network:
+    driver: bridge
