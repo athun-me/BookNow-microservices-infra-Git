@@ -25,6 +25,7 @@ services:
       - booknow-network
 
   booknow-account-services:
+    image: athunlal/booknow-account-services
     build:
       context: ./path-to-Submodules/bookNow-Account-Services
     container_name: booknow-account-services
@@ -37,6 +38,7 @@ services:
       - mongodb
 
   booknow-api-gateway:
+    image: athunlal/booknow-api-gateway
     build:
       context: ./path-to-Submodules/bookNow-Api-Gateway.git
     container_name: booknow-api-gateway
@@ -52,6 +54,7 @@ services:
       - booknow-train-svc
 
   booknow-booking-svc:
+    image: athunlal/booknow-booking-svc
     build:
       context: ./path-to-Submodules/bookNowBooking-svc.git
     container_name: booknow-booking-svc
@@ -61,6 +64,7 @@ services:
       - postgres
 
   booknow-admin-svc:
+    image: athunlal/booknow-admin-svc
     build:
       context: ./path-to-Submodules/book-administrative-service
     container_name: booknow-admin-svc
@@ -70,6 +74,7 @@ services:
       - postgres
 
   booknow-auth-svc:
+    image: athunlal/booknow-auth-svc
     build:
       context: ./path-to-Submodules/bookNow-auth-svc
     container_name: booknow-auth-svc
@@ -79,6 +84,7 @@ services:
       - postgres
 
   booknow-train-svc:
+    image: athunlal/booknow-train-svc
     build:
       context: ./path-to-Submodules/bookNowTrain-svc
     container_name: booknow-train-svc
