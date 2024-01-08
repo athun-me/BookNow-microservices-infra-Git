@@ -34,7 +34,6 @@ services:
       - booknow-network
     depends_on:
       - postgres
-      - mongodb
 
   booknow-api-gateway:
     image: athunlal/booknow-api-gateway
