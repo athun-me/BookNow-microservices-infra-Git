@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: postgres:13
+    image: postgres
     container_name: booknow-postgres
     environment:
       POSTGRES_DB: booknow
@@ -15,7 +15,7 @@ services:
       - booknow-network
 
   mongodb:
-    image: mongo:4.4
+    image: mongo
     container_name: booknow-mongodb
     ports:
       - "27018:27017"
@@ -25,9 +25,8 @@ services:
       - booknow-network
 
   booknow-account-services:
-    image: athunlal/booknow-account-services:v1
-    # build:
-    #   context: ./path-to-Submodules/bookNow-Account-Services
+    image: athunlal/booknow-account-services
+   
     container_name: booknow-account-services
     ports:
       - "8000:8000"
@@ -38,9 +37,8 @@ services:
       - mongodb
 
   booknow-api-gateway:
-    image: athunlal/booknow-api-gateway:v1
-    # build:
-    #   context: ./path-to-Submodules/bookNow-Api-Gateway.git
+    image: athunlal/booknow-api-gateway
+   
     container_name: booknow-api-gateway
     ports:
       - "80:8000"
@@ -54,9 +52,8 @@ services:
       - booknow-train-svc
 
   booknow-booking-svc:
-    image: athunlal/booknow-booking-svc:v1
-    # build:
-    #   context: ./path-to-Submodules/bookNowBooking-svc.git
+    image: athunlal/booknow-booking-svc
+   
     container_name: booknow-booking-svc
     networks:
       - booknow-network
@@ -64,9 +61,8 @@ services:
       - postgres
 
   booknow-admin-svc:
-    image: athunlal/booknow-admin-svc:v1
-    # build:
-    #   context: ./path-to-Submodules/book-administrative-service
+    image: athunlal/booknow-admin-svc
+   
     container_name: booknow-admin-svc
     networks:
       - booknow-network
@@ -74,9 +70,8 @@ services:
       - postgres
 
   booknow-auth-svc:
-    image: athunlal/booknow-auth-svc:v1
-    # build:
-    #   context: ./path-to-Submodules/bookNow-auth-svc
+    image: athunlal/booknow-auth-svc
+    
     container_name: booknow-auth-svc
     networks:
       - booknow-network
@@ -84,9 +79,8 @@ services:
       - postgres
 
   booknow-train-svc:
-    image: athunlal/booknow-train-svc:v1
-    # build:
-    #   context: ./path-to-Submodules/bookNowTrain-svc
+    image: athunlal/booknow-train-svc
+   
     container_name: booknow-train-svc
     networks:
       - booknow-network
